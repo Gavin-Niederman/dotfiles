@@ -1,0 +1,43 @@
+(defpoll vol
+    :initial "0"
+    :interval "0.25s"
+    `pamixer --get-volume`
+)
+
+(defpoll muted
+    :initial "false"
+    :interval "0.25s"
+    `pamixer --get-mute`
+)
+
+(defvar vol-reveal false)
+
+(defwidget volume []
+    (eventbox
+        :onhover "eww update vol-reveal=true"
+        :onhoverlost "eww update vol-reveal=false"
+        (box
+            :space-evenly false
+            (button
+                :onclick `pamixer --toggle-mute`
+                (image
+                    :path "./assets/vol-${ muted == "false" ? "unmuted" : "muted"}.png"
+                    :image-width 30
+                )
+            )
+            (revealer
+                :reveal vol-reveal
+                :transition "slideleft"
+                :tooltip "Volume: ${vol}%"
+                (scale
+                    :width 100
+                    :min 0
+                    :max 100
+                    :orientation "h"
+                    :value vol
+                    :onchange "pamixer --set-volume {}"
+                )
+            )
+        )
+    )
+)

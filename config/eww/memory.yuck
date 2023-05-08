@@ -1,0 +1,21 @@
+(defvar mem-reveal false)
+
+(defwidget memory []
+    (eventbox
+        :onhover "eww update mem-reveal=true"
+        :onhoverlost "eww update mem-reveal=false"
+        (box
+            :space-evenly false
+            (image
+                :path "./assets/memory.png"
+                :image-width 30
+            )
+            (revealer
+                :reveal mem-reveal
+                :transition "slideleft"
+
+                (label :text "hi")
+            )
+        )
+    )
+)

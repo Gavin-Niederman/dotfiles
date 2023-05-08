@@ -1,0 +1,57 @@
+* {
+    all: unset;
+    font-family: 'Noto Sans';
+}
+
+window {
+    background-color: #303633;
+    color: #D4D9D6;
+    border-radius: 100;
+}
+
+scale {
+    margin-left: 5px;
+
+    trough {
+        background-color: #4D5652;
+        border-radius: 16px;
+        min-height: 10px;
+        min-width: 70px;
+        margin: 0px 10px 0px 0px;
+
+        highlight {
+            background-color:#FE5F55;
+            border-radius: 10px;
+        }
+    }
+}
+
+.left-widgets {
+    padding-left: 10px;
+}
+
+.right-widgets {
+    padding-right: 10px;
+}
+
+.workspace-entry {
+    color: #939F97;
+    padding-left: 10px;
+    font-size: 1.2rem;
+}
+
+.workspace-entry.occupied {
+    color: #D4D9D6;
+}
+
+.workspace-entry.current {
+    color: #FE7B72;
+}
+
+.clock {
+    font-size: 1.35rem;
+}
+
+.cpu-graph {
+    background-color: #4D5652;
+}

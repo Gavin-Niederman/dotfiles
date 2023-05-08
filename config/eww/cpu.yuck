@@ -1,0 +1,28 @@
+(defvar cpu-reveal false)
+
+(defwidget cpu []
+    (eventbox
+        :onhover "eww update cpu-reveal=true"
+        :onhoverlost "eww update cpu-reveal=false"
+        (box
+            :space-evenly false
+            (image
+                :path "./assets/cpu.png"
+                :image-width 30
+            )
+            (revealer
+                :reveal cpu-reveal
+                :transition "slideright"
+                (graph
+                    :class "cpu-graph"
+                    :width 100
+                    :value "${EWW_CPU.avg}"
+                    :tooltip "CPU usage: ${round(EWW_CPU.avg, 1)}"
+                    :time-range "5s"
+                    :thickness 2
+                    :line-style "round"
+                )
+            )
+        )
+    )
+)

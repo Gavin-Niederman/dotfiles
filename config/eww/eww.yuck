@@ -1,0 +1,98 @@
+(include "./workspaces.yuck")
+(include "./cpu.yuck")
+(include "./volume.yuck")
+(include "./memory.yuck")
+
+(defpoll time
+  :initial "0:0:0"
+  :interval "1s"
+  `date +%H:%M:%S`
+)
+
+(defwidget clock []
+  (box
+    :class "clock"
+    time
+  )
+)
+
+(defwidget spacer [?width]
+  (box
+    :width width
+  )
+)
+
+(defwidget bar []
+  (box
+    (box
+      :class "left-widgets"
+      :halign "start"
+      :space-evenly false
+      :spacing 10
+      (workspaces
+        :width 100
+      )
+    )
+    (box
+      :class "center-widgets"
+      :halign "center"
+      :space-evenly false
+      (clock)
+    )
+    (box
+      :class "right-widgets"
+      :halign "end"
+      :space-evenly false
+      (memory)
+      (spacer :width 15)
+      (cpu)
+      (spacer :width 15)
+      (volume)
+    )
+  )
+)
+
+(defwindow bar-left
+  :monitor 1
+  :geometry
+    (geometry 
+      :x "0%"
+      :y "1%"
+      :width "95%"
+      :height "3%"
+      :anchor "top center"
+    )
+  :stacking "fg"
+  :exclusive true
+  (bar)
+)
+
+(defwindow bar-mid
+  :monitor 0
+  :geometry
+    (geometry 
+      :x "0%"
+      :y "1%"
+      :width "95%"
+      :height "3%"
+      :anchor "top center"
+    )
+  :stacking "fg"
+  :exclusive true
+  (bar)
+)
+
+(defwindow bar-right
+  :monitor 2
+  :geometry
+    (geometry 
+      :x "0%"
+      :y "1%"
+      :width "95%"
+      :height "3%"
+      :anchor "top center"
+    )
+  :stacking "fg"
+  :exclusive true
+  (bar)
+)
