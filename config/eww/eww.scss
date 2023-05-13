@@ -26,6 +26,23 @@ scale {
     }
 }
 
+progressbar {
+    margin-left: 5px;
+
+    trough {
+        background-color: #4D5652;
+        border-radius: 16px;
+        min-height: 10px;
+        min-width: 70px;
+        margin: 0px 10px 0px 0px;
+
+    }
+    progress {
+        background-color:#FE5F55;
+        border-radius: 10px;
+    }
+}
+
 .left-widgets {
     padding-left: 10px;
 }

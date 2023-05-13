@@ -14,7 +14,15 @@
                 :reveal mem-reveal
                 :transition "slideleft"
 
-                (label :text "hi")
+                (box
+                    (label
+                        :text "mem"
+                    )
+                    (progress
+                        :orientation "v"
+                        :value "${EWW_RAM.total_mem / EWW_RAM.used_mem}"
+                    )
+                )
             )
         )
     )
