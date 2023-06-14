@@ -53,7 +53,7 @@
 )
 
 (defwindow bar-left
-  :monitor 1
+  :monitor 2
   :geometry
     (geometry 
       :x "0%"
@@ -68,7 +68,7 @@
 )
 
 (defwindow bar-mid
-  :monitor 0
+  :monitor 1
   :geometry
     (geometry 
       :x "0%"
@@ -83,7 +83,7 @@
 )
 
 (defwindow bar-right
-  :monitor 2
+  :monitor 3
   :geometry
     (geometry 
       :x "0%"

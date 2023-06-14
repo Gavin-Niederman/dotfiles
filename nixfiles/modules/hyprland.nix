@@ -10,7 +10,12 @@ in
     };
   };
   config = {
-    programs.hyprland.enable = cfg.enable;
+    programs.hyprland = {
+      enable = cfg.enable;
+      nvidiaPatches = true;
+      xwayland.enable = true;
+    };
+
     programs.regreet = {
       enable = cfg.enable;
       settings = fromTOML ''
@@ -28,6 +33,12 @@ in
 
     environment.systemPackages = with pkgs; (if cfg.enable then [
       egl-wayland
+      mesa
+      libglvnd
+      libdrm
+      vulkan-tools
+      seatd
+      
       qt6.qtwayland
       qt5.qtwayland
 
